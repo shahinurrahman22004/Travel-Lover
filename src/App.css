@@ -7,6 +7,25 @@
   pointer-events: none;
 }
 
+.simle-btn {
+  background-color: #0d6efd;
+  width: 180px;
+  margin: auto;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 45px;
+  transition: .36s;
+  font-weight: 700;
+}
+
+.simle-btn:hover{
+  background-color: #F56960;
+  color: white;
+  font-size: 18px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
