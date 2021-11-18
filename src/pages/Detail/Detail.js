@@ -11,39 +11,48 @@ const Detail = () => {
     const {user} = useAuth();
 
     useEffect( () => {
-        fetch(`https://wicked-demon-36731.herokuapp.com/services/${serviceId}`)
+        fetch(`https://wicked-demon-36731.herokuapp.com/service/${serviceId}`)
         .then(res => res.json())
         .then(data => setService(data));
     }, [serviceId])
 
-    const handleSubmit = () => {
+    const handleSubmit = e => {
+        
         alert('Submit successfullly.');
+
+        e.preventDefault();
     }
 
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 mt-5">
                     <div>
-                        <img  src={service.img} alt="" />
+                        <img style={{width: '80%'}} className="mb-2" src={service?.img} alt="" />
                     </div>
                     <div>
-                        <p>Name{service?.name}</p>
-                        <p>Price{service?.price}</p>
+                        <h4 className="mb-2">{service?.name}</h4>
+                        <h5>Price: {service?.price}</h5>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <h2>Your Address</h2>
                     <form onSubmit={handleSubmit}>
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" placeholder="Your Name" name="" id="" required />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} placeholder="Your Name" type="text" defaultValue={user.displayName} name="" id="" required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="email" placeholder="Your Email" name="" id="" required />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="email" placeholder="Your Email" defaultValue={user?.email} name="" id="" required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" placeholder="Address" name="" id="" required />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="tel" name="" id="" placeholder="Phone Number" required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="password" name="" id="" placeholder="Password" required />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="Street Address" required />
                         <br />
-                        <input className="simle-btn" type="submit" value="Submit" />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="District" required />
+                        <br />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="Divishion" required />
+                        <br />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="ZIP Code" required />
+                        <br />
+                        <input className="simle-btn" type="submit" value="Place Order" />
                     </form>
                 </div>
                 
