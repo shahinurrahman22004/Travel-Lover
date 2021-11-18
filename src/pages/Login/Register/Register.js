@@ -1,50 +1,54 @@
 import React, { useState } from 'react';
 import { Alert, Spinner } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
-const Login = () => {
-    const [login, setLogin] = useState({});
-    const {user, loginUser, isLoading, error, signInUsingGoogle} = useAuth();
+const Register = () => {
 
-    const location = useLocation();
+    const [login, setLogin] = useState({});
+    const {user, registerUser , isLoading, error}  = useAuth();
+
     const history = useHistory();
-    
-    const handleOnChange = e => {
+
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = {...login};
         newLoginData[field] = value;
         setLogin(newLoginData);
+        console.log(field, value);
     }
 
     const handleLoginBtn = e => {
-        loginUser(login.email, login.password, location, history)
-        alert('Login Successfully');
+        if(login.password !== login.password2){
+            alert('Your password did not match');
+            return
+        }
+        registerUser(login.email, login.password, history, login.name)
         e.preventDefault();
     }
 
-    const handleGoogleSignIn = () => {
-        signInUsingGoogle(location, history)
-    }
     return (
         <div style={{marginBottom: '50px', textAlign:'center', marginTop: '50px'}}>
             <p>
-                Don't Have account? {" "}
-                <Link to="/register">
-                    <sapn>
-                        Register Here
-                    </sapn>
-                </Link>
+                Register a New Account
             </p>
+            
+            { !isLoading && <form onSubmit={handleLoginBtn}>
+                <input 
+                style={{width: '80%', padding: '10px', margin: '10px'}} 
+                type="text"
+                name="name" placeholder="Your Name"  
+                onChange={handleOnBlur}
+                required />
+                <br />
 
-            <form onSubmit={handleLoginBtn}>
                 <input 
                 style={{width: '80%', padding: '10px', margin: '10px'}} 
                 type="email" 
                 name="email" placeholder="Your Email"  
-                onChange={handleOnChange}
+                onChange={handleOnBlur}
                 required />
                 <br />
 
@@ -52,14 +56,23 @@ const Login = () => {
                 style={{width: '80%', padding: '10px', margin: '10px'}} 
                 type="password" 
                 name="password"
-                onChange={handleOnChange}
+                onChange={handleOnBlur}
                 placeholder="Password"
                 required />
 
                 <br />
-                <input className="simle-btn" type="submit" value="LogIn" />
+                <input 
+                style={{width: '80%', padding: '10px', margin: '10px'}} 
+                type="password" 
+                name="password2"
+                onChange={handleOnBlur}
+                placeholder="Retype Password"
+                required />
+
+                <br />
+                <input className="simle-btn" type="submit" value="Register" />
                         
-            </form>
+            </form>}
             {
                 isLoading && <Spinner animation="border" variant="success"></Spinner>
             }
@@ -70,11 +83,16 @@ const Login = () => {
                 error && <Alert severity="error">{error}</Alert>
             }
 
-
-            <h2 className="text-primary mt-4">Login  Using Google</h2>
-            <button onClick={handleGoogleSignIn} className="simle-btn">Login With Google</button>
+<p>
+                Already have account? {" "}
+                <Link to="/login">
+                    <sapn>
+                        Login Here
+                    </sapn>
+                </Link>
+            </p>
         </div>
     );
 };
 
-export default Login;
+export default Register;

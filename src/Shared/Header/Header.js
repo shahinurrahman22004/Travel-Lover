@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
 
-    const {user, logOut} = useAuth();
+    const {user, logout} = useAuth();
 
     return (
         <>
@@ -22,8 +23,17 @@ const Header = () => {
 
                             <Nav.Link className="text-white"  as={HashLink} to="/home#gallery">Gallery</Nav.Link>
 
+                            {user?.email && 
+                            <Nav.Link className="text-white"  as={HashLink} to="/home#myorders">My Orders</Nav.Link>} 
+
+                            {user?.email && 
+                            <Nav.Link className="text-white"  as={HashLink} to="/home#manageAllOrder">Manage All Order</Nav.Link>} 
+
+                            {user?.email && 
+                            <Nav.Link className="text-white"  as={HashLink} to="/home#addNewService">Add New Service</Nav.Link>} 
+                            
                             {user?.email ?
-                            <Button onClick={logOut} variant="light">LogOut</Button>:
+                            <Button onClick={logout} variant="light">LogOut</Button>:
                             <Nav.Link as={HashLink} className="text-white"  to="/login">Login</Nav.Link>}
                             <Navbar.Text>
                                 Signed in as: <a href="#login">{user?.displayName}</a>

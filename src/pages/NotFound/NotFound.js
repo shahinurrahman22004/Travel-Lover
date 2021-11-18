@@ -1,13 +1,21 @@
 import React from 'react';
-// import notFound from '../../images/notFound/notFound.jpg'
+import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+const Notfound = () => {
     return (
-        <div>
-            {/* <img className="w-100" src={notFound} alt="" /> */}
-            <h2>hello</h2>
+        <div >
+            <div className="mt-5">
+                <img className="md:hidden" src="https://i.ibb.co/RgYQvV7/undraw-page-not-found-su7k-1.png" alt="" />
+                <h1>OOPS! </h1>
+                <p>No signal here! we cannot find the page you are looking for </p>
+                <Link to="/">
+                    <button className="simle-btn">Home</button>
+        
+                </Link>
+            </div>
         </div>
     );
 };
 
-export default NotFound;
+export default Notfound;
+

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const Service = (props) => {
-    const {name, description, img, price} = props.service;
+    const {_id, name, description, img, price} = props.service;
     return (
         <div className="card-group col-md-4 mb-4">
             <div className="card">
@@ -13,7 +13,7 @@ const Service = (props) => {
                     <p className="card-text">{description}</p>
                     <p>{price}</p>
                 </div>
-                <Link to={`/details`}>
+                <Link to={`/details/${_id}`}>
                     <button className="simle-btn">Book Now</button>
                 </Link>
             </div>

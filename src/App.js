@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Header from './Shared/Header/Header';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Detail from './pages/Detail/Detail';
+import Register from './pages/Login/Register/Register';
 
 function App() {
   return (
@@ -28,9 +29,13 @@ function App() {
               <Login></Login>
             </Route>
 
-            <PrivateRoute path="/details">
+            <PrivateRoute path="/details/:serviceId">
               <Detail></Detail>
             </PrivateRoute>
+
+            <Route path="/register">
+              <Register></Register>
+            </Route>
 
             <Route path="*">
               <NotFound></NotFound>
