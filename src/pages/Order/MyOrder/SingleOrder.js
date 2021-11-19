@@ -55,7 +55,7 @@ const SingleOrder = (props) => {
                     <p>{props.order.shipped}</p>
                 </td>
                 <td>
-                    <Button onClick={handleShow} variant="danger">Cenceled Order</Button>
+                    <Button onClick={handleShow} variant="danger">Cancel</Button>
                 </td>
             </tr>
 
