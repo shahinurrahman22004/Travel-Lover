@@ -8,7 +8,7 @@ const News = () => {
             <div className="row">
                 <div className="col-md-4 p-3">
                     <h2>BEST TRAVELER'S SHARED PHOTOS</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur assumenda animi doloremque provident dolore earum ratione laborum minima optio exercitationem esse ut perferendis ducimus suscipit, sapiente laudantium quidem corporis.</p>
+                    <p>Over the past year, travel has pretty much come to a halt. But with the world beginning to reopen and people getting vaccinated, I can't help but fantasize about seeing the world once again.</p>
                 </div>
                 <div className="col-md-4 p-3">
                     <img className="w-100" src="https://i.ibb.co/R03bSH0/gallery-1.jpg" alt="" />

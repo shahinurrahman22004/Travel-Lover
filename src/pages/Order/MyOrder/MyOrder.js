@@ -10,11 +10,11 @@ const MyOrder = () => {
     const {user} = useAuth();
     const [orders, setOrders] = useState();
     useEffect(()=>{
-        fetch(`https:/wicked-demon-36731.herokuapp.com/orders?email=${user?.email}`)
+        fetch(`https://wicked-demon-36731.herokuapp.com/orders?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setOrders(data));
     },[user])
-
+    console.log(user.email);
     return (
         <div className="container">
             <div className="row">

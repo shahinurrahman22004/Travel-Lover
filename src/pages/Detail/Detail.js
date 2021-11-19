@@ -25,14 +25,14 @@ const Detail = () => {
     const [success, setSuccess] = useState(false);
 
     useEffect( () => {
-        fetch(`https:/wicked-demon-36731.herokuapp.com/service/${serviceId}`)
+        fetch(`https://wicked-demon-36731.herokuapp.com/service/${serviceId}`)
         .then(res => res.json())
         .then(data => setService(data));
     }, [serviceId])
 
     const handleSubmit = e => {
 
-        fetch('https:/wicked-demon-36731.herokuapp.com/order', {
+        fetch('https://wicked-demon-36731.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

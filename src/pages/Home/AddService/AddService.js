@@ -51,12 +51,12 @@ const AddService = () => {
                     required />
                     <br />
 
-                    <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                    <textarea style={{width: '80%', padding: '10px', margin: '10px'}} 
                     type="text" placeholder="Description"
                     name="description"
                     onBlur={handleOnBlur} 
                     id="" 
-                    required />
+                    required ></textarea>
                     <br />
 
                     <input style={{width: '80%', padding: '10px', margin: '10px'}} 

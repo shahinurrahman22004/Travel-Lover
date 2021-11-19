@@ -15,7 +15,7 @@ const Footer = () => {
                         <div className="row">
                             <div className="col-md-3 py-3 px-3">
                                 <h4>ABOUT TRAVEL</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse aspernatur sapiente ad doloremque nostrum architecto, vitae quasi eos vel ducimus.</p>
+                                <p>Hey there! We're Imran and Shaninur, the two travellers behind this travel blog, Adventure in You. We've been traveling the world for the last four years in search of the best adventures.</p>
                             </div>
                             <div className="col-md-3 py-3 px-3">
                                 <h4>CONTACT INFORMATION</h4>

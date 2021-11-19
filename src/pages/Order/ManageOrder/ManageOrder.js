@@ -9,9 +9,9 @@ const ManageOrder = () => {
     const {user} = useAuth();
     const [orders, setOrders] = useState();
     useEffect(()=>{
-        fetch('https:/wicked-demon-36731.herokuapp.com/orders')
+        fetch('https://wicked-demon-36731.herokuapp.com/orders')
         .then(res => res.json())
-        .then(data => setOrders(data));
+        .then(data => setOrders(data))
     },[user])
 
     return (

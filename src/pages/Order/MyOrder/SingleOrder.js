@@ -10,14 +10,14 @@ const SingleOrder = (props) => {
     
     const [show, setShow] = useState(false);
     useEffect( () => {
-        fetch(`https:/wicked-demon-36731.herokuapp.com/service/${serviceId}`)
+        fetch(`https://wicked-demon-36731.herokuapp.com/service/${serviceId}`)
         .then(res => res.json())
         .then(data => setProduct(data));
     }, [serviceId])
     
     const cancleOrder = canId => {
 
-        const url = `https:/wicked-demon-36731.herokuapp.com/orders?can=cancheled&id=${canId}`;
+        const url = `https://wicked-demon-36731.herokuapp.com/orders?can=cancheled&id=${canId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
