@@ -9,6 +9,9 @@ import Header from './Shared/Header/Header';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Detail from './pages/Detail/Detail';
 import Register from './pages/Login/Register/Register';
+import MyOrder from './pages/Order/MyOrder/MyOrder';
+import ManageOrder from './pages/Order/ManageOrder/ManageOrder';
+import AddService from './pages/Home/AddService/AddService';
 
 function App() {
   return (
@@ -31,6 +34,18 @@ function App() {
 
             <PrivateRoute path="/details/:serviceId">
               <Detail></Detail>
+            </PrivateRoute>
+
+            <PrivateRoute path="/myorders">
+              <MyOrder></MyOrder>
+            </PrivateRoute>
+
+            <PrivateRoute path="/manageAllOrder">
+              <ManageOrder></ManageOrder>
+            </PrivateRoute>
+
+            <PrivateRoute path="/addNewService">
+              <AddService></AddService>
             </PrivateRoute>
 
             <Route path="/register">

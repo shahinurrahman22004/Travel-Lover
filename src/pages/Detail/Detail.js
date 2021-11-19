@@ -10,13 +10,42 @@ const Detail = () => {
     const {serviceId} = useParams();
     const {user} = useAuth();
 
+    const initialiInfo = {serviceId: serviceId, shipped: 'Pending', district: '', divishion: '', zipCode: '', username: user.displayName, email: user.email, phone: '', address: ''}
+    const [orderInfo, setOrderInfo] = useState(initialiInfo);
+
+
+    const handleOnBlur = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newInfo = { ...orderInfo };
+        newInfo[field] = value;
+        setOrderInfo(newInfo);
+    }
+
+    const [success, setSuccess] = useState(false);
+
     useEffect( () => {
-        fetch(`https://wicked-demon-36731.herokuapp.com/service/${serviceId}`)
+        fetch(`https:/wicked-demon-36731.herokuapp.com/service/${serviceId}`)
         .then(res => res.json())
         .then(data => setService(data));
     }, [serviceId])
 
     const handleSubmit = e => {
+
+        fetch('https:/wicked-demon-36731.herokuapp.com/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orderInfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+           if(data.insertedId){
+            setSuccess(true);
+           }
+        })
         
         alert('Submit successfullly.');
 
@@ -38,21 +67,71 @@ const Detail = () => {
                 <div className="col-md-6">
                     <h2>Your Address</h2>
                     <form onSubmit={handleSubmit}>
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} placeholder="Your Name" type="text" defaultValue={user.displayName} name="" id="" required />
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        placeholder="Your Name" 
+                        type="text" defaultValue={user.displayName} 
+                        name="userName"
+                        onBlur={handleOnBlur}
+                        id="" 
+                        required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="email" placeholder="Your Email" defaultValue={user?.email} name="" id="" required />
+
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        type="email" placeholder="Your Email" 
+                        defaultValue={user?.email} 
+                        name="email"
+                        onBlur={handleOnBlur} 
+                        id="" 
+                        required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="tel" name="" id="" placeholder="Phone Number" required />
+
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        type="tel" 
+                        name="phone"
+                        onBlur={handleOnBlur} 
+                        id="" 
+                        placeholder="Phone Number" 
+                        required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="Street Address" required />
+
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        type="text" 
+                        name="address" 
+                        onBlur={handleOnBlur}
+                        id="" 
+                        placeholder="Street Address" 
+                        required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="District" required />
+
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        type="text" 
+                        name="district" 
+                        onBlur={handleOnBlur}
+                        id="" 
+                        placeholder="District" 
+                        required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="Divishion" required />
+
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        type="text" 
+                        name="divishion" 
+                        onBlur={handleOnBlur}
+                        id="" 
+                        placeholder="Divishion"
+                        required />
                         <br />
-                        <input style={{width: '80%', padding: '10px', margin: '10px'}} type="text" name="" id="" placeholder="ZIP Code" required />
+
+                        <input style={{width: '80%', padding: '10px', margin: '10px'}} 
+                        type="text" 
+                        name="zipCode" 
+                        onBlur={handleOnBlur}
+                        id="" 
+                        placeholder="ZIP Code" 
+                        required />
                         <br />
+
                         <input className="simle-btn" type="submit" value="Place Order" />
+                        
                     </form>
                 </div>
                 
