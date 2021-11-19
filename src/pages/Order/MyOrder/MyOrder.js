@@ -16,8 +16,9 @@ const MyOrder = () => {
     },[user])
     console.log(user.email);
     return (
-        <div className="container">
+        <div className="container mt-4">
             <div className="row">
+                <h2 className="mb-4">My Orders</h2>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>

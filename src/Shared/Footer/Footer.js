@@ -19,7 +19,6 @@ const Footer = () => {
                             </div>
                             <div className="col-md-3 py-3 px-3">
                                 <h4>CONTACT INFORMATION</h4>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                                 <p>01310365997</p>
                                 <p>shahinur02345@gmail.com</p>
                                 <p>Sat-Thu 8:00-16:00</p>
@@ -34,7 +33,6 @@ const Footer = () => {
                             </div>
                             <div className="col-md-3 py-3 tx-3">
                                 <h4>SUBSCRIBE US</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 <form onSubmit={handleSub}>
                                     <input className="p-1"  type="email" name="" placeholder="Your Email" required />
                                     <input className="mt-3 simle-btn px-3 py-2"  type="submit" value="SUBSCRIBE NOW" />

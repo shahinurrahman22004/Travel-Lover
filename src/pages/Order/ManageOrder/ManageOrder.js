@@ -15,8 +15,9 @@ const ManageOrder = () => {
     },[user])
 
     return (
-        <div className="container">
+        <div className="container mt-4">
             <div className="row">
+                <h2 className="mb-4">Manage All Orders</h2>
                 <Table striped bordered hover size="sm">
                     <thead>
                         <tr>

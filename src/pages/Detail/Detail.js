@@ -56,12 +56,14 @@ const Detail = () => {
         <div className="container mt-5">
             <div className="row">
                 <div className="col-md-6 mt-5">
-                    <div>
-                        <img style={{width: '80%'}} className="mb-2" src={service?.img} alt="" />
-                    </div>
+                    
                     <div>
                         <h4 className="mb-2">{service?.name}</h4>
                         <h5>Price: {service?.price}</h5>
+                    </div>
+                    <div>
+                        <img style={{width: '80%'}} className="mb-2" src={service?.img} alt="" />
+                        <p>{service?.description}</p>
                     </div>
                 </div>
                 <div className="col-md-6">
